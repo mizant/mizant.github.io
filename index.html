@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Павел Найденко — B2B-маркетолог с техническим бэкграундом</title>
+  <meta name="description" content="B2B digital/growth-маркетолог. SEO, лидогенерация, посадочные страницы, контекстная реклама, аналитика, MQL/SQL-воронка, Laravel. Удалённая работа.">
+  <meta property="og:title" content="Павел Найденко — B2B-маркетолог с техническим бэкграундом">
+  <meta property="og:description" content="Развиваю digital-каналы привлечения клиентов для B2B-продуктов. SEO, контекстная реклама, посадочные страницы, аналитика и MQL/SQL-воронка.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mizant.github.io">
+  <!-- TODO: добавить og-image (1200x630) для красивого превью в Telegram и соцсетях -->
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&subset=cyrillic&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-primary: #0b1a2e;
+      --text-secondary: #475569;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-subtle: #eff6ff;
+      --accent-2: #0d9488;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.04);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* --- Nav --- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex; align-items: center;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between; width: 100%;
+    }
+    nav .logo {
+      font-weight: 700; font-size: 1.05rem; color: var(--text-primary);
+      letter-spacing: -.02em;
+    }
+    nav ul { list-style: none; display: flex; gap: 16px; align-items: center; }
+    nav ul li a {
+      text-decoration: none; font-size: .875rem; font-weight: 500;
+      color: var(--text-secondary); transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--accent); }
+    nav ul li a.cta-nav {
+      background: var(--accent); color: #fff; padding: 8px 20px;
+      border-radius: 8px; font-weight: 600; transition: background .2s;
+    }
+    nav ul li a.cta-nav:hover { background: var(--accent-hover); color: #fff; }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text-primary);
+      margin: 5px 0; transition: .3s; border-radius: 2px;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      padding: 120px 0 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f0fdfa 100%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: 0;
+      width: 55%;
+      height: 120%;
+      background: radial-gradient(ellipse at 70% 40%, rgba(37,99,235,.07) 0%, rgba(13,148,136,.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
+    }
+    .hero .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .hero .hero-statement {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 14px;
+      max-width: 520px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 8px; font-weight: 600;
+      font-size: .95rem; text-decoration: none;
+      transition: all .2s; font-family: var(--font);
+      cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn-secondary {
+      background: var(--surface); color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .hero-metrics-row {
+      display: flex;
+      gap: 28px;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .hero-metrics-row::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      border-radius: 1px;
+    }
+    .hero-metric { }
+    .hero-metric .hm-num {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+    .hero-metric .hm-num .hm-change {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+    .hero-metric .hm-label {
+      display: block;
+      font-size: .78rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .hero-photo-side {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      background: linear-gradient(160deg, #e0f2fe 0%, #dbeafe 40%, #f0fdfa 100%);
+      box-shadow: -8px 0 40px rgba(37,99,235,.06);
+    }
+    .hero-photo-side .photo-decor {
+      position: absolute;
+      bottom: -80px;
+      right: -60px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(37,99,235,.12) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-photo-side .photo-decor-2 {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(13,148,136,.08) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-photo-side img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: calc(100% - 20px);
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+      filter: saturate(0.88) contrast(1.06) brightness(0.97);
+      border-radius: 24px;
+      padding: 10px;
+    }
+    .hero-photo-side .photo-blend {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to right,
+        rgba(248,250,252,.55) 0%,
+        rgba(239,246,255,.25) 20%,
+        transparent 40%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+    /* --- Section common --- */
+    section { padding: 100px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      max-width: 680px;
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+    }
+    .section-desc.centered { text-align: center; margin-left: auto; margin-right: auto; }
+    .section-title.centered { text-align: center; }
+    .section-label.centered { display: block; text-align: center; }
+
+    /* --- Metrics --- */
+    #metrics { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .metric-card { text-align: center; padding: 28px 12px; }
+    .metric-card .num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+    .metric-card .num .suffix { font-size: 1.35rem; color: var(--accent); }
+    .metric-card .label {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* --- Value --- */
+    #value { background: var(--bg); }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: all .25s;
+    }
+    .value-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .value-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .value-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .value-card p {
+      font-size: .88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* --- Expertise --- */
+    #expertise { background: var(--surface); }
+    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .expertise-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      transition: all .25s;
+    }
+    .expertise-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .expertise-card .icon {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      display: block;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .expertise-card h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .expertise-card p {
+      font-size: .82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* --- Case Studies --- */
+    #cases { background: var(--bg); }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cases-subheading {
+      font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+      color: var(--text-secondary); margin: 40px 0 16px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .cases-subheading:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all .25s;
+    }
+    .case-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .case-card-top { padding: 28px 24px 16px; }
+    .case-card .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .case-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .case-card .case-desc {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .case-card .case-desc .case-label {
+      display: block;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 10px;
+      font-size: .82rem;
+    }
+    .case-card .case-desc .case-label:first-child { margin-top: 0; }
+    .case-card-metrics {
+      padding: 12px 24px 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .case-card-metrics .cm { }
+    .case-card-metrics .cm .val {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .case-card-metrics .cm .lbl {
+      font-size: .72rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* --- Process --- */
+    #process { background: var(--surface); }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .process-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .process-step .step-num {
+      min-width: 36px; height: 36px;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .process-step .step-body h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .process-step .step-body p {
+      font-size: .82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* --- Tech --- */
+    #tech {
+      background: linear-gradient(135deg, #0b1a2e 0%, #172554 100%);
+      color: #fff;
+    }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .looking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .edge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    #tech .section-label { color: #93c5fd; }
+    #tech .section-title { color: #fff; }
+    #tech .section-desc { color: #94a3b8; }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .tech-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .tech-group h4 {
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #93c5fd;
+      margin-bottom: 14px;
+    }
+    .tech-items { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-item {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: .82rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      transition: all .2s;
+    }
+    .tech-item:hover { background: rgba(255,255,255,.14); border-color: var(--accent); }
+    .tech-note {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .tech-note h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .tech-note p, .tech-note li {
+      font-size: .88rem;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+    .tech-note ul { list-style: none; margin-top: 8px; }
+    .tech-note ul li { padding: 4px 0; position: relative; padding-left: 16px; }
+    .tech-note ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+    /* --- B2B Understanding --- */
+    #b2b { background: var(--bg); }
+    .b2b-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .b2b-copy h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 20px 0 10px;
+    }
+    .b2b-copy h3:first-child { margin-top: 0; }
+    .b2b-copy p {
+      font-size: .92rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+    .b2b-list { list-style: none; }
+    .b2b-list li {
+      display: flex; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .92rem;
+      color: var(--text-secondary);
+    }
+    .b2b-list li:last-child { border: none; }
+    .b2b-list li .check {
+      color: var(--accent-2);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .b2b-highlight {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .b2b-highlight h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .b2b-highlight p {
+      font-size: .88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* --- About --- */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-text { }
+    .about-text p {
+      font-size: .95rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-cards { display: flex; flex-direction: column; gap: 16px; }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all .2s;
+    }
+    .about-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .about-card .ac-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .about-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .about-card p {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .about-accent {
+      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      border-left: 4px solid var(--accent);
+    }
+    .about-accent p {
+      font-size: .92rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* --- Contact --- */
+    #contact {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .contact-info p {
+      font-size: .95rem;
+      margin-bottom: 28px;
+      color: var(--text-secondary);
+    }
+    .contact-cards { display: flex; flex-direction: column; gap: 14px; }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .contact-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .contact-card .cc-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-subtle);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .contact-card .cc-body { }
+    .contact-card .cc-body .cc-label {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .contact-card .cc-body .cc-value {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 2px;
+    }
+    .contact-card .cc-arrow {
+      margin-left: auto;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-secondary);
+    }
+
+    /* --- Scroll reveal --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-grid { gap: 40px; }
+      .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+      .cases-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .mobile-toggle { display: block; }
+      nav ul.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(255,255,255,.98);
+        backdrop-filter: blur(16px);
+        padding: 24px; gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero { padding: 100px 0 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 0; }
+      .hero-text { padding: 0 0 48px; }
+      .hero h1 { font-size: 2rem; }
+      .hero .hero-subtitle { font-size: 1rem; }
+      .hero p { font-size: .95rem; }
+      .hero-photo-side {
+        border-radius: 20px;
+        min-height: 520px;
+        margin: 0 -24px;
+        width: calc(100% + 48px);
+        box-shadow: 0 4px 24px rgba(37,99,235,.06);
+      }
+      .hero-photo-side .photo-blend {
+        background: linear-gradient(to bottom,
+          rgba(248,250,252,.55) 0%,
+          rgba(239,246,255,.2) 20%,
+          transparent 40%
+        );
+      }
+      .hero-photo-side .photo-decor-2 { display: none; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .metric-card .num { font-size: 2rem; }
+      .value-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .looking-grid { grid-template-columns: 1fr; }
+      .edge-grid { grid-template-columns: repeat(2, 1fr); }
+      .tech-grid { grid-template-columns: 1fr; }
+      .tech-stack { grid-template-columns: 1fr; }
+      .b2b-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .section-title { font-size: 1.75rem; }
+      section { padding: 64px 0; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero-metrics-row { gap: 16px; }
+      .hero-metric .hm-num { font-size: 1.1rem; }
+      .hero-photo-side { min-height: 360px; }
+      .hero-text { padding: 0 0 36px; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .metric-card .num { font-size: 1.6rem; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .edge-grid { grid-template-columns: 1fr; }
+
+    }
+    .metrics-note {
+  margin-top: 18px;
+  font-size: .78rem;
+  color: var(--text-secondary);
+  text-align: center;
+  opacity: .8;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav>
+    <div class="container">
+      <span class="logo">Павел Найденко</span>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links">
+        <li><a href="#metrics">Цифры</a></li>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#expertise">Экспертиза</a></li>
+        <li><a href="#cases">Кейсы</a></li>
+        <li><a href="#process">Как работаю</a></li>
+        <li><a href="#looking">Что ищу</a></li>
+        <li><a href="#contact" class="cta-nav">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">B2B Digital &middot; Growth Marketing</div>
+          <h1>Павел Найденко</h1>
+          <div class="hero-subtitle">B2B-маркетолог с техническим бэкграундом</div>
+          <div class="hero-statement">Строю B2B-лидогенерацию на стыке SEO, аналитики и разработки.</div>
+          <p>
+            Развиваю digital-каналы для B2B и IT-продуктов: посадочные страницы, SEO, контекстную рекламу, аналитику и MQL/SQL-воронку. Сильнее всего раскрываюсь в сложных нишах, где нужно быстро разобраться в продукте, рынке и технической реализации.
+          </p>
+          <div class="hero-actions">
+            <a href="#cases" class="btn btn-primary">Посмотреть кейсы &darr;</a>
+            <a href="https://t.me/Mizant" target="_blank" class="btn btn-secondary">Написать в Telegram</a>
+          </div>
+          <div class="hero-metrics-row">
+            <div class="hero-metric">
+              <span class="hm-num">3 000+</span>
+              <span class="hm-label">MQL</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hm-num">1 000+</span>
+              <span class="hm-label">SQL</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hm-num">–40<span class="hm-change">%+</span></span>
+              <span class="hm-label">CPL</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hm-num">50+</span>
+              <span class="hm-label">Посадочных</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-photo-side">
+          <div class="photo-decor"></div>
+          <div class="photo-decor-2"></div>
+          <div class="photo-blend"></div>
+          <img src="photo_2025-12-16_15-02-01.jpg" alt="Павел Найденко">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ключевые цифры -->
+  <section id="metrics">
+    <div class="container">
+      <div class="metrics-grid reveal">
+        <div class="metric-card">
+          <div class="num">3 000+</div>
+          <div class="label">MQL — квалифицированных заявок маркетингом</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">1 000+</div>
+          <div class="label">SQL — заявок, принятых продажами в работу</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">–40%</div>
+          <div class="label">Снижение CPL за счёт аудита подрядчика и оптимизации семантики</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">x2</div>
+          <div class="label">Снижение стоимости SQL после переработки рекламных кампаний</div>
+        </div>
+      </div>
+      <div class="metrics-grid reveal" style="margin-top:16px;">
+        <div class="metric-card">
+          <div class="num">x2</div>
+          <div class="label">Рост органического трафика в пиковые периоды</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">50+</div>
+          <div class="label">Запущено и переработано посадочных страниц</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">100+</div>
+          <div class="label">SEO-материалов подготовлено</div>
+        </div>
+        <div class="metric-card">
+          <div class="num">~4<span class="suffix">%</span></div>
+          <div class="label">Конверсия в MQL на запущенных с нуля зарубежных сайтах</div>
+        </div>
+      </div>
+    </div>
+    <p class="metrics-note">
+  * В публичной версии портфолио часть показателей округлена или обобщена, чтобы не раскрывать внутренние данные работодателя.
+</p>
+  </section>
+
+  <!-- Чем полезен бизнесу -->
+  <section id="value">
+    <div class="container">
+      <span class="section-label">Чем полезен бизнесу</span>
+      <h2 class="section-title">Маркетолог, который понимает продукт, код и продажи</h2>
+      <p class="section-desc">
+        Я не просто настраиваю рекламу — я выстраиваю систему привлечения клиентов, в которой каждый этап измерим и управляем.
+      </p>
+      <div class="value-grid">
+        <div class="value-card reveal">
+          <span class="icon">&#8594;</span>
+          <h3>Сквозная аналитика и воронка</h3>
+          <p>Выстраиваю MQL/SQL-воронку с нуля: от настройки целей в Метрике до отчётов в Roistat. Отслеживаю не клики, а реальные лиды и их качество.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="icon">&#8594;</span>
+          <h3>Управление подрядчиками и бюджетом</h3>
+          <p>Контролирую агентства и фрилансеров, провожу аудит их работы, принимаю решения о замене. Оптимизирую расходы без потери объёма заявок.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="icon">&#8594;</span>
+          <h3>Техническая реализация</h3>
+          <p>Могу сам собрать семантику, написать текст, сверстать страницу и настроить аналитику. Говорю с разработкой на одном языке.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Мой подход -->
+  <section id="edge" style="background:var(--surface);border-top:1px solid var(--border);">
+    <div class="container">
+      <span class="section-label">Мой подход</span>
+      <h2 class="section-title">Смотрю на маркетинг как на систему, а не как на набор каналов</h2>
+      <p class="section-desc">
+        В B2B результат часто зависит не от одного канала, а от связки: спрос, посадочная страница, форма, аналитика, CRM, квалификация заявки и обратная связь от продаж. Технический и продажный опыт помогает мне смотреть на эту систему целиком: находить узкие места, быстрее запускать гипотезы и меньше зависеть от подрядчиков там, где задачу можно закрыть самостоятельно.
+      </p>
+      <div class="edge-grid">
+        <div class="value-card reveal">
+          <h3>Вижу всю воронку</h3>
+          <p>Смотрю не только на визиты и клики, а на MQL, SQL, CPL, качество заявок и связь маркетинга с продажами.</p>
+        </div>
+        <div class="value-card reveal">
+          <h3>Понимаю разработку</h3>
+          <p>Могу оценить сложность задачи, поставить понятное ТЗ и при необходимости сам закрыть часть технической реализации.</p>
+        </div>
+        <div class="value-card reveal">
+          <h3>Понимаю продажи</h3>
+          <p>Работал в B2B-продажах, поэтому знаю, какие заявки помогают менеджерам, а какие просто создают шум в CRM.</p>
+        </div>
+        <div class="value-card reveal">
+          <h3>Быстро запускаю гипотезы</h3>
+          <p>Могу пройти путь от семантики и структуры до текста, верстки, аналитики и оценки результата без полной зависимости от подрядчиков.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обо мне -->
+  <section id="about">
+    <div class="container">
+      <span class="section-label">Обо мне</span>
+      <h2 class="section-title">Маркетинг, в который я пришел через продажи и разработку</h2>
+      <p class="section-desc">
+        Я не классический маркетолог, который всю карьеру занимался только рекламой или контентом.
+      </p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Я пришёл в маркетинг через B2B-продажи и разработку. Сначала общался с клиентами напрямую, слышал реальные возражения и видел, какие заявки помогают продажам, а какие просто создают шум в CRM.
+          </p>
+          <p>
+            Позже добавился технический бэкграунд: сайты, Laravel, вёрстка, формы, интеграции и аналитика. Поэтому мне проще работать на стыке маркетинга, продукта и разработки — я понимаю не только «что нужно бизнесу», но и как это реализовать технически.
+          </p>
+          <p>
+            Мне интересны сложные B2B-продукты, где нужно быстро разобраться в рынке, продукте, технических ограничениях и логике принятия решений. Там, где нельзя просто «залить трафик», а нужно понять, почему клиент вообще должен оставить заявку.
+          </p>
+          <div class="about-accent reveal">
+            <p>В работе ценю системность, честность в цифрах и здравый смысл. Не люблю активность ради активности: если канал не работает — его нужно отключать или менять подход. Если аналитика врёт — сначала чинить аналитику, а уже потом делать выводы.</p>
+          </div>
+        </div>
+        <div class="about-cards">
+          <div class="about-card reveal">
+            <span class="ac-tag">Из продаж</span>
+            <h4>Понимание клиента</h4>
+            <p>Я знаю, как выглядит живой разговор с ЛПР: собственником, руководителем автопарка, механиком, логистом. Поэтому в маркетинге стараюсь писать не абстрактные «продающие тексты», а формулировать офферы через реальные боли, возражения и критерии выбора.</p>
+          </div>
+          <div class="about-card reveal">
+            <span class="ac-tag">Из разработки</span>
+            <h4>Скорость и реалистичность</h4>
+            <p>Технический опыт помогает быстрее запускать гипотезы: я понимаю, что можно сделать быстро, что потребует разработки, как поставить задачу и где лучше не усложнять. При необходимости могу сам сверстать страницу, поправить логику формы или разобраться в интеграции.</p>
+          </div>
+          <div class="about-card reveal">
+            <span class="ac-tag">Из маркетинга</span>
+            <h4>Фокус на результат</h4>
+            <p>Для меня важны не только визиты и клики. Я смотрю на MQL, SQL, стоимость заявки, качество лида и то, как маркетинг связан с продажами. Хороший результат — это не «запустили кампанию», а понятная система, которая даёт бизнесу управляемый поток заявок.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Экспертиза -->
+  <section id="expertise">
+    <div class="container">
+      <span class="section-label">Экспертиза</span>
+      <h2 class="section-title">Что я делаю</h2>
+      <p class="section-desc">
+        Полный цикл B2B-маркетинга — от сбора семантики до анализа воронки и технической доработки сайта.
+      </p>
+      <div class="expertise-grid">
+        <div class="expertise-card reveal">
+          <span class="icon">01</span>
+          <h3>SEO</h3>
+          <p>Сбор семантики, кластеризация, SEO-карта, тех. аудит в Labrika, Яндекс.Вебмастер, Google Search Console, перелинковка, микроразметка, Miralinks.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">02</span>
+          <h3>Контекстная реклама</h3>
+          <p>Яндекс.Директ: поиск, ретаргетинг, бренд, конкуренты. Контроль подрядчиков, управление бюджетом, анализ CPL и SQL.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">03</span>
+          <h3>Посадочные страницы</h3>
+          <p>От семантики и структуры до текста и вёрстки. Оффер, доказательства, CTA, FAQ, перелинковка — под конкретный B2B-сегмент.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">04</span>
+          <h3>Аналитика</h3>
+          <p>Яндекс.Метрика, цели, конверсии, Calltouch, Roistat, Bitrix24. Ежемесячная отчётность для руководства. Контроль качества заявок.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">05</span>
+          <h3>MQL / SQL-воронка</h3>
+          <p>Настройка процесса квалификации лидов, скоринг, согласование критериев приёма заявок с отделом продаж и контроль качества данных в CRM.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">06</span>
+          <h3>AI / GEO-контент</h3>
+          <p>Нейросети для структуры страниц, SEO-контента, FAQ, микроразметки, экспертных статей. Адаптация под нейровыдачу Яндекса (топ-3).</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">07</span>
+          <h3>Международные рынки</h3>
+          <p>Запуск сайтов с нуля для нескольких рынков СНГ: структура, контент, аналитика, SEO. Выход в топ-3 по ключевым SEO-кластерам.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">08</span>
+          <h3>Техническая реализация</h3>
+          <p>PHP, Laravel, MySQL, JavaScript, Vue, Git, HTML, CSS, Tailwind, Bootstrap, Tilda, WordPress. Верстка, доработки, интеграции, БД.</p>
+        </div>
+        <div class="expertise-card reveal">
+          <span class="icon">09</span>
+          <h3>Выставки и sales enablement</h3>
+          <p>Организация участия в отраслевых выставках: стенд, материалы, подрядчики и поддержка продаж на этапе подготовки. Смотрю на выставку как на B2B-точку контакта с рынком.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Кейсы -->
+  <section id="cases">
+    <div class="container">
+      <span class="section-label">Кейсы</span>
+      <h2 class="section-title">Кейсы с измеримым эффектом</h2>
+      <p class="section-desc">
+        SEO, performance, посадочные страницы, аналитика, brand awareness и B2B-точки контакта с рынком.
+      </p>
+
+      <div class="cases-subheading">Основные growth-кейсы</div>
+
+      <!-- Кейс 1 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">SEO и контент</div>
+          <h3>Запуск блога и рост органического трафика</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Коммерческие посадочные уже созданы, нужен новый источник органического роста.
+            <span class="case-label">Что сделал:</span>
+            Внедрил блог, организовал производство SEO-контента, настроил перелинковку статей с коммерческими страницами.
+            <span class="case-label">Результат:</span>
+            Органический трафик в пике вырос почти в 2 раза, блог стал стабильным каналом привлечения на раннем этапе B2B-воронки.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">~2x</div><div class="lbl">Органический трафик в пике</div></div>
+          <div class="cm"><div class="val">+неск. тыс.</div><div class="lbl">Пользователей / мес — средний прирост органики</div></div>
+          <div class="cm"><div class="val">100+</div><div class="lbl">SEO-материалов</div></div>
+        </div>
+      </div>
+
+      <!-- Кейс 2 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">Контекстная реклама</div>
+          <h3>Оптимизация контекстной рекламы и снижение CPL</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Контекстная реклама была слабо управляемой, подрядчик допускал системные ошибки, CPL и стоимость SQL были выше рынка.
+            <span class="case-label">Что сделал:</span>
+            Провёл аудит, выявил ошибки, инициировал замену подрядчика. Глубоко участвовал в сборе семантического ядра под специфику B2B-продукта.
+            <span class="case-label">Результат:</span>
+            CPL снизился более чем на 40%, стоимость SQL — почти в 2 раза, рекламный бюджет сокращён примерно на 50% без потери объёма заявок.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">–40%+</div><div class="lbl">Снижение CPL</div></div>
+          <div class="cm"><div class="val">~2x</div><div class="lbl">Снижение стоимости SQL</div></div>
+          <div class="cm"><div class="val">~50%</div><div class="lbl">Сокращение рекламного бюджета</div></div>
+        </div>
+      </div>
+
+      <!-- Кейс 3 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">Нишевый B2B-сегмент</div>
+          <h3>Запуск посадочной страницы под узкий B2B-сегмент</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Появился нишевый B2B-спрос в транспортной сфере — нужна была посадочная страница с быстрым запуском через несколько каналов.
+            <span class="case-label">Что сделал:</span>
+            Создал посадочную страницу под конкретный сегмент, запустил поисковую контекстную рекламу, дополнительно разместил PR-материал в отраслевом медиа.
+            <span class="case-label">Результат:</span>
+            Посадочная страница принесла 150+ MQL. Высокий процент заявок прошёл квалификацию в SQL. PR-канал дал контакты по CPL ниже контекста.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">150+ MQL</div><div class="lbl">Посадочная страница</div></div>
+          <div class="cm"><div class="val">Высокий % SQL</div><div class="lbl">Качество заявок</div></div>
+          <div class="cm"><div class="val">Доп. поток</div><div class="lbl">Из поисковой рекламы</div></div>
+          <div class="cm"><div class="val">Ниже контекстной рекламы</div><div class="lbl">CPL PR-размещения</div></div>
+        </div>
+      </div>
+
+      <!-- Кейс 4 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">Международные рынки</div>
+          <h3>Запуск сайтов на новые рынки СНГ</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Компания выходила на новые рынки СНГ — digital-направления не было, всё нужно было строить с нуля.
+            <span class="case-label">Что сделал:</span>
+            Запустил сайты с нуля: структура, посадочные страницы, контент, SEO, аналитика. Адаптировал подход под специфику каждого рынка.
+            <span class="case-label">Результат:</span>
+            Конверсия в MQL на новых рынках составила около 4%. Сайты вышли в топ-3 по ключевым SEO-кластерам на нескольких рынках СНГ.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">~4%</div><div class="lbl">Конверсия в MQL</div></div>
+          <div class="cm"><div class="val">С нуля</div><div class="lbl">Запуск новых рынков</div></div>
+          <div class="cm"><div class="val">Топ-3</div><div class="lbl">Ключевые SEO-кластеры</div></div>
+        </div>
+      </div>
+
+      <div class="cases-subheading">Дополнительные проекты</div>
+
+      <!-- Кейс 5 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">Аналитика и процессы</div>
+          <h3>Улучшение качества данных в CRM</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Часть заявок некорректно классифицировалась в CRM, из-за чего аналитика по воронке была неточной.
+            <span class="case-label">Что сделал:</span>
+            Выявил проблему, совместно с аналитиком и разработчиком переработал процесс обработки заявок, настроил корректную классификацию.
+            <span class="case-label">Результат:</span>
+            Повторные и новые обращения учитываются раздельно. Качество данных по воронке и точность отчётов существенно повысились.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">Корректный учёт</div><div class="lbl">Повторных и новых обращений</div></div>
+          <div class="cm"><div class="val">Улучшение качества</div><div class="lbl">Аналитики и работы с лидами</div></div>
+        </div>
+      </div>
+
+      <!-- Кейс 6 -->
+      <div class="case-card reveal" style="margin-bottom:24px;">
+        <div class="case-card-top">
+          <div class="tag">Brand awareness / SMM</div>
+          <h3>Рост узнаваемости бренда через Instagram Reels</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            У корпоративного Instagram-аккаунта была небольшая база (~1 300 подписчиков). Стандартный продуктовый контент не давал охватов.
+            <span class="case-label">Что сделал:</span>
+            Протестировал развлекательные Reels-форматы, рассчитанные на органическое распространение за пределы текущей аудитории.
+            <span class="case-label">Результат:</span>
+            Один ролик собрал почти 5 млн просмотров, ещё несколько — сотни тысяч. Канал не стал источником заявок (brand awareness, не лидогенерация), но сработал на узнаваемость бренда.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">~5 млн</div><div class="lbl">Просмотров на одном ролике</div></div>
+          <div class="cm"><div class="val">100k+</div><div class="lbl">Просмотров на нескольких роликах</div></div>
+          <div class="cm"><div class="val">1 300</div><div class="lbl">Подписчиков на старте</div></div>
+          <div class="cm"><div class="val">Brand awareness</div><div class="lbl">Основной эффект</div></div>
+        </div>
+      </div>
+
+      <!-- Кейс 7 -->
+      <div class="case-card reveal">
+        <div class="case-card-top">
+          <div class="tag">Offline B2B / Sales enablement</div>
+          <h3>Организация участия в отраслевых выставках</h3>
+          <p class="case-desc">
+            <span class="case-label">Проблема:</span>
+            Компания участвовала в отраслевых выставках, но отсутствовал системный маркетинговый подход к подготовке.
+            <span class="case-label">Что сделал:</span>
+            Организовал участие как маркетинговый проект: стенд, материалы, коммуникации, подрядчики, поддержка продаж. Выставки — GITEX (Марокко, Дубай), TransRussia и CTO Expo (Москва).
+            <span class="case-label">Результат:</span>
+            По отдельным мероприятиям собраны десятки и сотни B2B-контактов, которые передавались в отдел продаж для дальнейшей обработки. Выставки стали не «присутствием ради присутствия», а работающей B2B-точкой контакта с рынком.
+          </p>
+        </div>
+        <div class="case-card-metrics">
+          <div class="cm"><div class="val">4 выставки</div><div class="lbl">Россия и международные рынки</div></div>
+          <div class="cm"><div class="val">десятки и сотни</div><div class="lbl">B2B-контактов по отдельным мероприятиям</div></div>
+          <div class="cm"><div class="val">B2B networking</div><div class="lbl">Основной эффект</div></div>
+          <div class="cm"><div class="val">Sales enablement</div><div class="lbl">Поддержка продаж</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Как я работаю -->
+  <section id="process">
+    <div class="container">
+      <span class="section-label">Как я работаю</span>
+      <h2 class="section-title">Процесс работы с посадочными страницами</h2>
+      <p class="section-desc">
+        От поискового запроса до готовой страницы с аналитикой — каждый этап контролирую лично.
+      </p>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Сбор семантики</h3>
+            <p>Wordstat, Topvisor, Labrika — собираю запросы, оцениваю частотность и конкурентность.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Группировка по интенту</h3>
+            <p>Разделяю запросы по типу: коммерческие, информационные, навигационные, трансакционные.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Анализ конкурентов</h3>
+            <p>Изучаю структуру выдачи, лидеров ниши, их офферы и посадочные страницы.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Структура страницы</h3>
+            <p>Аудитория, боль, оффер, доказательства, CTA, FAQ, перелинковка — каркас страницы.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Текст и офферы</h3>
+            <p>Пишу с помощью AI, затем вручную проверяю и дорабатываю. Факты, цифры, возражения.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h3>Прототип / ТЗ дизайнеру</h3>
+            <p>Собираю прототип из готовых блоков или готовлю ТЗ дизайнеру с чёткой структурой.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">7</div>
+          <div class="step-body">
+            <h3>Вёрстка</h3>
+            <p>Верстаю сам (Laravel, Blade, HTML/CSS) или ставлю задачу разработчику.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">8</div>
+          <div class="step-body">
+            <h3>Аналитика</h3>
+            <p>Настраиваю или проверяю цели, события, коллтрекинг, связку с CRM.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">9</div>
+          <div class="step-body">
+            <h3>Оценка результата</h3>
+            <p>Анализирую трафик, MQL, SQL, CPL и качество заявок. Делаю выводы и оптимизирую.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Технический бэкграунд -->
+  <section id="tech">
+    <div class="container">
+      <span class="section-label">Технический бэкграунд</span>
+      <h2 class="section-title">Маркетолог, который пишет код</h2>
+      <p class="section-desc">
+        Я не просто ставлю задачи разработчикам — я могу сам оценить сложность, предложить решение и при необходимости закрыть задачу своими руками.
+      </p>
+      <div class="tech-grid">
+        <div class="tech-stack">
+          <div class="tech-group">
+            <h4>Backend и CMS</h4>
+            <div class="tech-items">
+              <span class="tech-item">PHP</span>
+              <span class="tech-item">Laravel</span>
+              <span class="tech-item">MySQL</span>
+              <span class="tech-item">Blade</span>
+              <span class="tech-item">WordPress</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Frontend</h4>
+            <div class="tech-items">
+              <span class="tech-item">HTML</span>
+              <span class="tech-item">CSS</span>
+              <span class="tech-item">Tailwind</span>
+              <span class="tech-item">Bootstrap</span>
+              <span class="tech-item">JavaScript</span>
+              <span class="tech-item">Vue</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Инструменты</h4>
+            <div class="tech-items">
+              <span class="tech-item">Git</span>
+              <span class="tech-item">GitLab</span>
+              <span class="tech-item">Tilda</span>
+              <span class="tech-item">Composer</span>
+              <span class="tech-item">npm</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Прочее</h4>
+            <div class="tech-items">
+              <span class="tech-item">REST API</span>
+              <span class="tech-item">JSON</span>
+              <span class="tech-item">Микроразметка</span>
+            </div>
+          </div>
+        </div>
+        <div class="tech-note">
+          <h4>Что делал технически</h4>
+          <ul>
+            <li>Вёрстка новых посадочных страниц на Laravel + Blade</li>
+            <li>Доработка старых страниц, переработка меню</li>
+            <li>Внедрение раздела «Блог» с нуля</li>
+            <li>Редизайн мобильной версии сайта</li>
+            <li>Работа с формами заявок и их логикой</li>
+            <li>Интеграции посторонних сервисов (Calltouch, аналитика)</li>
+            <li>Backend-логика и работа с базой данных</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему понимаю B2B-клиента -->
+  <section id="b2b">
+    <div class="container">
+      <span class="section-label">Продажи</span>
+      <h2 class="section-title">Понимаю B2B-клиента изнутри</h2>
+      <p class="section-desc">
+        До маркетинга работал в B2B-продажах. Знаю, как принимают решения в компаниях с коммерческим транспортом, и умею говорить с ЛПР на их языке.
+      </p>
+      <div class="b2b-grid">
+        <div>
+          <div class="b2b-copy">
+            <h3>Сегменты, с которыми работал</h3>
+            <p>
+              Грузоперевозки, строительство, спецтехника, производство, компании с коммерческим автопарком.
+            </p>
+            <h3>Кто принимает решение</h3>
+            <p>
+              Собственник бизнеса, руководитель компании, ответственный за автопарк, завгар, главный механик, логист.
+            </p>
+            <h3>Боли, которые закрываю</h3>
+            <p>
+              Отсутствие контроля транспорта, слив топлива, «левые» рейсы, высокие затраты на топливо, риски с техникой и водителями, compliance и обязательные требования.
+            </p>
+          </div>
+        </div>
+        <div class="b2b-highlight">
+          <h4>Почему это важно в маркетинге</h4>
+          <p>
+            Я понимаю, как формируется потребность, какие возражения возникают у ЛПР и на какие триггеры они реагируют. Это позволяет создавать офферы и контент, которые действительно конвертируют, а не просто «про маркетинг».
+          </p>
+          <p style="margin-top:12px;">
+            Каждую посадочную страницу и каждое объявление я проверяю вопросом: «Купил бы я это, будь я начальником автопарка?»
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Инструменты -->
+  <section id="tools" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <span class="section-label">Инструменты</span>
+      <h2 class="section-title">С чем работаю</h2>
+      <p class="section-desc">
+        Технологический стек, который использую ежедневно для сбора данных, анализа, запуска кампаний и отчётности.
+      </p>
+      <div class="tools-grid">
+        <div class="expertise-card reveal" style="background:var(--bg);">
+          <span class="icon">&#8594;</span>
+          <h3>SEO</h3>
+          <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.5;">
+            Wordstat, Topvisor, Labrika, Яндекс.Вебмастер, Google Search Console, Miralinks
+          </p>
+        </div>
+        <div class="expertise-card reveal" style="background:var(--bg);">
+          <span class="icon">&#8594;</span>
+          <h3>Аналитика</h3>
+          <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.5;">
+            Яндекс.Метрика, Calltouch, Roistat, Bitrix24, цели, конверсии, отчёты
+          </p>
+        </div>
+        <div class="expertise-card reveal" style="background:var(--bg);">
+          <span class="icon">&#8594;</span>
+          <h3>Реклама</h3>
+          <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.5;">
+            Яндекс.Директ, поисковая реклама, ретаргетинг, брендовые кампании
+          </p>
+        </div>
+        <div class="expertise-card reveal" style="background:var(--bg);">
+          <span class="icon">&#8594;</span>
+          <h3>AI / GEO</h3>
+          <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.5;">
+            AI-инструменты для структуры страниц, контента, офферов, анализа конкурентов, прототипирования, быстрого создания MVP и проверки гипотез. Использую ChatGPT, Claude, Codex, OpenCode и другие инструменты под конкретную задачу.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Что ищу -->
+  <section id="looking" style="background:var(--surface);border-top:1px solid var(--border);">
+    <div class="container">
+      <span class="section-label">Что ищу</span>
+      <h2 class="section-title">Ищу роль, где маркетинг влияет на рост, а не просто ведёт каналы</h2>
+      <p class="section-desc">
+        Ищу роль B2B Digital / Growth Marketing Manager или руководителя digital-направления в B2B, IT или сложной продуктовой нише. Интересны задачи, где нужно не просто вести отдельный канал, а выстраивать систему привлечения: SEO, посадочные страницы, performance, аналитика, MQL/SQL-воронка, взаимодействие с продажами и разработкой.
+      </p>
+      <div class="looking-grid">
+        <div class="expertise-card reveal">
+          <h3 style="margin-bottom:6px;">Подходящие роли</h3>
+          <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.6;">
+            B2B Digital Marketing Manager, Growth Marketing Manager, Product Marketing Manager, руководитель digital-направления, SEO/Growth-маркетолог.
+          </p>
+        </div>
+        <div class="expertise-card reveal">
+          <h3 style="margin-bottom:6px;">Интересные задачи</h3>
+          <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.6;">
+            Рост входящих заявок, развитие SEO, переработка посадочных страниц, настройка аналитики, оптимизация CPL/SQL, запуск новых направлений и рынков.
+          </p>
+        </div>
+        <div class="expertise-card reveal">
+          <h3 style="margin-bottom:6px;">Формат работы</h3>
+          <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.6;">
+            Офис в Ставрополе или удалённая работа по РФ. Полный день.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contact">
+    <div class="container">
+      <span class="section-label">Контакты</span>
+      <h2 class="section-title">Обсудим вакансию или digital-задачи</h2>
+      <p class="section-desc">
+        Рассматриваю работу в офисе в Ставрополе или удалённые позиции по РФ в B2B, IT и сложных продуктовых нишах: growth marketing, digital-маркетинг, SEO/growth, product marketing, руководитель digital-направления.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-cards">
+          <a href="mailto:pavel-naydenko@yandex.ru" class="contact-card">
+            <div class="cc-icon">&#9993;</div>
+            <div class="cc-body">
+              <div class="cc-label">Email</div>
+              <div class="cc-value">pavel-naydenko@yandex.ru</div>
+            </div>
+            <div class="cc-arrow">&rarr;</div>
+          </a>
+          <a href="https://t.me/Mizant" target="_blank" class="contact-card">
+            <div class="cc-icon">&#9992;</div>
+            <div class="cc-body">
+              <div class="cc-label">Telegram</div>
+              <div class="cc-value">@Mizant</div>
+            </div>
+            <div class="cc-arrow">&rarr;</div>
+          </a>
+          <a href="https://github.com/mizant" target="_blank" class="contact-card">
+            <div class="cc-icon">&#60;&#47;&#62;</div>
+            <div class="cc-body">
+              <div class="cc-label">GitHub</div>
+              <div class="cc-value">github.com/mizant</div>
+            </div>
+            <div class="cc-arrow">&rarr;</div>
+          </a>
+        </div>
+        <div class="contact-info">
+          <h3>Уровень и формат</h3>
+          <p>
+            Финансовые ожидания: обсуждаются в зависимости от задач, зоны ответственности и формата работы. Ориентир — от 150 тыс. ₽ на руки. Формат: офис в Ставрополе или удалённая работа по РФ.
+          </p>
+          <div style="background: var(--bg); border-radius: var(--radius); padding: 24px; border: 1px solid var(--border);">
+            <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Коротко обо мне</p>
+            <p style="font-size: .85rem; margin-bottom: 12px;">
+              B2B-маркетолог, который понимает SEO, контекст, посадочные страницы, аналитику, воронку MQL/SQL и Laravel. Работаю на стыке маркетинга, продаж, продукта и разработки.
+            </p>
+            <p style="font-size: .85rem;">
+              <a href="https://t.me/Mizant" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none;">Запросить резюме в Telegram &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Павел Найденко &nbsp;&middot;&nbsp; B2B Digital / Growth Marketing &nbsp;&middot;&nbsp; 2026
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-toggle').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+    document.querySelectorAll('#nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+      });
+    });
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      observer.observe(el);
+    });
+
+  </script>
+</body>
+</html>
